@@ -1,0 +1,34 @@
+@using InterestPaymentCalculatorApp.Models
+@using InterestPaymentCalculatorApp.Abstractions
+@model dynamic
+
+@{
+    ViewBag.Title = "PaymentsTable";
+    Layout = "_Layout";
+
+}
+
+
+<table class="table table-striped">
+    <thead class="table-dark">
+       <tr>
+            <th>Month</th>
+            <th>Date</th>
+            <th>Outstanding debt</th>
+            <th>Monthly payment</th>
+            <th>Interest payment (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (LoanCalculationResultViewModel item in ViewBag.Payments)
+    {
+        <tr>
+            <td scope="row">@item.Month</td>
+            <td>@item.Date.ToString("dd.MM.yyyy")</td>
+            <td>@Math.Round(item.OutstandingDebt, 2)</td>
+            <td>@Math.Round(item.MonthlyPayment, 2)</td>
+            <td>@Math.Round(item.InterestPayment, 2)</td>
+        </tr>
+    }
+    </tbody>
+</table>

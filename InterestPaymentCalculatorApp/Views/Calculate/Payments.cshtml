@@ -1,0 +1,38 @@
+@model InterestPaymentCalculatorApp.Models.LoanCalculationRequest
+
+@{
+    ViewData["Title"] = "GetAllInterestPayments";
+    Layout = "_Layout";
+}
+<div class="form-floating mb-3">
+    @* <h1 class="display-4">Loan Payment Calculator</h1> *@
+
+    <form asp-action="paymentsResult" method="get">
+        <div>
+            <label asp-for="SumOfLoan" for="SumOfLoan">Sum of loan:</label>
+            <input asp-for="SumOfLoan" for="SumOfLoan" type="number" min="0" class="form-control" id="floatingSum"/>
+        </div>
+        
+        <div>
+            <label asp-for="AgreementDate" for="AgreementDate">Agreement date:</label>
+            <input asp-for="AgreementDate" for="AgreementDate" type="date" class="form-control" />
+        </div>
+
+        <div>
+            <label asp-for="LoanDuration" for="LoanDuration">Loan duration (years):</label>
+            <input asp-for="LoanDuration" for="LoanDuration" type="number" min="0" class="form-control" id="floatingDuration"/>
+        </div>
+
+        <div>
+            <label asp-for="InterestRate" for="InterestRate">Interest rate (%):</label>
+            <input asp-for="InterestRate" for="InterestRate" type="number" min="0" class="form-control" id="floatingRate"/>
+        </div>
+        
+        <div>
+            <p></p>
+            <button type="submit" class="btn btn-secondary">Submit form</button>
+            <p></p>
+        </div>
+
+    </form>
+</div>
